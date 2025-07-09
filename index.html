@@ -1,11 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="LunchCheck">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Coursera</title>
+  <meta charset="UTF-8" />
+  <title>Lunch Check</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    input[type="text"] {
+      width: 300px;
+      padding: 8px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
 </head>
-<body>
-    <h1>Hello Coursera Students! Welcome to Angular JS !!</h1>
+<body ng-controller="LunchCheckController">
+
+  <h1>Lunch Check</h1>
+
+  <!-- 
+    Note: Empty items between commas like ", ,"
+    are NOT counted as valid items in the list. 
+  -->
+  <input
+    type="text"
+    placeholder="List comma-separated lunch items"
+    ng-model="lunchItems"
+    ng-style="inputStyle"
+  />
+  <button ng-click="checkIfTooMuch()">Check If Too Much</button>
+
+  <div class="message" ng-style="messageStyle">{{message}}</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
